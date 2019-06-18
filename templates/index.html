@@ -8,17 +8,19 @@ body {
     background-size:cover;
     margin: 0;
 }
-
-p {
+div.class1 {
     color:white;
-    position:absolute;
-    top:15px;
-    right:470px;
+    position:relative;
+    top:0px;
+    left:330px;
 }
 img {
     filter: brightness(0) invert(1);
 }
 h1 {
+    position:relative;
+    top:53px;
+    right:25px;
     color:white;
     text-align:center;
     font-family:Cambria;
@@ -73,8 +75,12 @@ td {
 
 {% block body %}
 <div class="content">
-    <h1><em>List of Tasks to finish</em> <br> </h1>
-    <p><img src="static/img/Notepad-512.png" height="45" width="45"/></p>
+    <h1><em>List of Tasks to finish</em>  </h1>
+    <div class="class1">
+    <div class="container">
+    <p><img src="static/img/Notepad-512.png" height="45" width="45" class="img-responsive"/></p>
+    </div>
+    </div>
     {% if tasks|length < 1 %}
     <h4>There are currently no tasks. Create one below!</h4>
     {% else %}
