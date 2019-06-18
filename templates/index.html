@@ -9,6 +9,15 @@ body {
     margin: 0;
 }
 
+p {
+    color:white;
+    position:absolute;
+    top:15px;
+    right:470px;
+}
+img {
+    filter: brightness(0) invert(1);
+}
 h1 {
     color:white;
     text-align:center;
@@ -43,6 +52,7 @@ th {
 }
 
 td {
+    width:30px;
     text-align: center;
     padding: 5px;
 }
@@ -63,20 +73,21 @@ td {
 
 {% block body %}
 <div class="content">
-    <h1><em>List of Tasks to finish</em></h1>
+    <h1><em>List of Tasks to finish</em> <br> </h1>
+    <p><img src="static/img/Notepad-512.png" height="45" width="45"/></p>
     {% if tasks|length < 1 %}
     <h4>There are currently no tasks. Create one below!</h4>
     {% else %}
     <table>
         <tr>
             <th>Task</th>
-            <th>Date Added</th>
+            <th style="width:90px">Date Added</th>
             <th>Actions</th>
         </tr>
         {% for task in tasks %}
             <tr>
                 <td>{{ task.content }}</td>
-                <td>{{ task.date_created.date() }}</td>
+                <td style="width:90px">{{ task.date_created.date() }}</td>
                 <div class="container">
                 <td>
                     <a href="/delete/{{task.id}}" class="btn btn-info btn-sm" role="button">Delete</a>
